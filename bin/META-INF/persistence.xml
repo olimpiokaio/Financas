@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	
+	<!-- unidade de persistencia com financas -->
+	<persistence-unit name="financas">
+		<!-- implementação do nosso jpa no nosso caso hibernate -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<!-- aqui são listadas todas as entidades -->
+		<class>br.com.model.Usuario</class>
+		<class>br.com.model.Movimentacao</class>
+		<class>br.com.model.Categoria</class>
+		<class>br.com.model.Cliente</class>
+		<class>br.com.model.Conta</class>
+		
+		<properties>
+			<!-- propriedades JDBC -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/financas"/>
+			<property name="javax.persistence.jdbc.user" value="postgres"/>
+			<property name="javax.persistence.jdbc.password" value="admim"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+			<!-- configurações hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+		</properties>
+	</persistence-unit>
+	
+</persistence>
